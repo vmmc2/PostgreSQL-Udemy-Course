@@ -35,3 +35,17 @@
 ### Other Data Types
 * ```BOOL```: This data type can only store 2 values (true or false). Useful when dealing with __in stock question, for example.__
 * ```ENUM```: This data type can hold one value from a list of values input by the user. Useful when dealing with __genders, for example.__
+
+## Primary Keys and Foreign Keys
+
+### Primary Keys
+* __Is a column (or a combination for columns) responsible for uniquely identifying a entry/record/row inside a table.__
+* __The value of a primary key must be unique and must also be different than null.__
+* There can only be 1 primary key (e.g., 1 column of primary key) per table.
+* __Primary keys are not compulsory but are highly advised. Use them whenever possible.__
+
+### Foreign Keys
+* A foreign key is used to perform a link between 2 tables. In other words, a foreign key is used to establish a relation between tables.
+* __A foreign key is a column where its values match the values of a primary key column in another table.__
+* When this happens, the table with the primary key is commonly called the __parent table__ while the table with the foreign key is commonly called the __child table.__
+* __A table can contain multiple foreign keys. However, it can only contain only one primary key.__
