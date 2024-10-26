@@ -95,3 +95,32 @@ CREATE TABLE table_name(
   column_3 DATATYPE3 CONSTRAINT -- The last column must not have a ",".
 );
 ```
+* More examples of table creation in PostgreSQL:
+  * First one:
+  ```SQL
+  -- Creating the "Directors" table
+  CREATE TABLE directors(
+    director_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(30),
+    last_name VARCHAR(30) NOT NULL,
+    date_of_birth DATE,
+    nationality VARCHAR(20)
+  );
+  ```
+  * Second one:
+  ```SQL
+    -- Creating the "Actors" table
+  CREATE TABLE actors(
+    actor_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(30),
+    last_name VARCHAR(30),
+    gender CHAR(1),
+    date_of_birth DATE
+  );
+  ```
+
+### Query to Delete a Table From a Database
+* To delete a certain table from a database, all you need to do is run the following script:
+```SQL
+DROP TABLE table_name;
+```
