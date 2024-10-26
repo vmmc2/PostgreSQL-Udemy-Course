@@ -24,7 +24,7 @@
 
 ### String Data Types
 * ```CHAR(N)```: Used for fixed length strings where N represents its length. Useful when dealing with __gender or state, for example.__
-* ```VARCHAR(N)```: Used for varying length strings where N represents the maximum possible length. Useful when dealing with __names or emails, for example.__
+* ```VARCHAR(N)```: Used for varying length strings where N represents the maximum possible length. Useful when dealing with __names or emails, for example.__ Note, when dealing with names, it is a good practice to separate the full name into two columns: first name and last name.
 * ```TEXT```: Used for varying length strings where there is no limit of characters. Useful when dealing with __comments or reviews, for example.__
 
 ## Time Data Types
@@ -39,6 +39,7 @@
 ## Primary Keys and Foreign Keys
 
 ### Primary Keys
+* This is a constraint, as we will see below. To correctly use it, just write: ```PRIMARY KEY```.
 * __Is a column (or a combination for columns) responsible for uniquely identifying a entry/record/row inside a table.__
 * __The value of a primary key must be unique and must also be different than null.__
 * There can only be 1 primary key (e.g., 1 column of primary key) per table.
@@ -70,3 +71,27 @@
 * __This constraint is used to check whether a value entered inside a column satisfies a boolean expression.__
 * For example, an age column must contain values greater than 0.
 * __This constraint is responsible for ensuring that the data present inside of a column makes sense.__
+
+## Creating a Table
+* Here, we'll create a database related to movies. This database will be used through the whole course and will contain 5 tables:
+  * Actors Table
+  * Directors Table
+  * Movies Table
+  * Movies Revenue Table
+  * Junction Table
+
+### Comments
+* In order to create a comment in PostgreSQL, you can do the following shown below:
+```SQL
+-- This is a comment.
+```
+
+### Query to Create a Table
+* The correct structure to create a table in PostgreSQL is shown below:
+```SQL
+CREATE TABLE table_name(
+  column_1 DATATYPE1 CONSTRAINT, -- Or PRIMARY KEY indicator.
+  column_2 DATATYPE2 CONSTRAINT,
+  column_3 DATATYPE3 CONSTRAINT -- The last column must not have a ",".
+);
+```
