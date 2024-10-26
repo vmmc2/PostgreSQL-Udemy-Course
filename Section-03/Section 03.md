@@ -49,3 +49,24 @@
 * __A foreign key is a column where its values match the values of a primary key column in another table.__
 * When this happens, the table with the primary key is commonly called the __parent table__ while the table with the foreign key is commonly called the __child table.__
 * __A table can contain multiple foreign keys. However, it can only contain only one primary key.__
+
+## Unique, Not Null, Check Constraints
+* Constraints are conditions that we can put on columns in order to make them only accept certain determined values.
+
+### Unique
+* __Ensures that a column can only contain unique values.__
+* __It throws an error if a duplicate value is inserted into the column marked as ```UNIQUE```.__
+* You can state whether a column should have a unique constraint when creating the table.
+* __The ```ID``` column also has the unique constraint applied to it when it is defined as the primary key. This happens by default.__
+* Good examples of columns that should have this constraint are: emails, usernames, etc.
+
+### Not Null
+* __Here, the ```NULL``` value represents the idea of absence of value.__
+* This constraint ensures that ```NULL``` values cannot be inserted into a column.
+* __If some piece of data is vital, then it is expected that its column has this specific constraint.__
+* One can also mark a column with such constraint when creating a table.
+
+### Check
+* __This constraint is used to check whether a value entered inside a column satisfies a boolean expression.__
+* For example, an age column must contain values greater than 0.
+* __This constraint is responsible for ensuring that the data present inside of a column makes sense.__
