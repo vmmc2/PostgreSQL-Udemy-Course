@@ -124,3 +124,24 @@ CREATE TABLE table_name(
 ```SQL
 DROP TABLE table_name;
 ```
+
+### Marking a Column as a Foreign Key
+* In order to mark a column from a table as a foreign key in PostgreSQL, it is required to use the ```REFERENCES``` keyword, as shown below:
+```SQL
+CREATE TABLE movies(
+	movie_id SERIAL PRIMARY KEY,
+	movie_name VARCHAR(50),
+	movie_length INT, -- In minutes
+	movie_lang VARCHAR(20),
+	release_date DATE,
+	age_certificate VARCHAR(5),
+	director_id INT REFERENCES directors(director_id)
+);
+```
+* In other words, the default syntax to create a foreign key in PostgreSQL is:
+```SQL
+CREATE TABLE table_name(
+  table_id SERIAL PRIMARY KEY,
+  foreign_key_id INT REFERENCES foreign_table(primary_key_name);
+);
+```
