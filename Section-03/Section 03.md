@@ -3,6 +3,7 @@
 ## What is Data Definition Language?
 * A subset of SQL, used to setup the structure of databases.
 
+
 ## Database Tables
 * Each database table is composed of rows and columns. The rows are also called entries/records, while the columns are called fields/attributes.
 * Each column has a defined data type associated which defines what type of data that specific column can contain.
@@ -10,6 +11,7 @@
 * __Each column should just contain only one value per row.__
 * __In every table there is a column called ```ID``` of type integer. Such column works as a primary key. A primary key is responsible for exclusively identify each row inside the table.__
 * __In a relational database, tables can be linked together. In such type of database, 2 tables are linked together through the use of a primary key column and a foreign key column.__
+
 
 ## Data Types
 * Here, we'll go through just the most common data types used in SQL.
@@ -51,6 +53,7 @@
 * When this happens, the table with the primary key is commonly called the __parent table__ while the table with the foreign key is commonly called the __child table.__
 * __A table can contain multiple foreign keys. However, it can only contain only one primary key.__
 
+
 ## Unique, Not Null, Check Constraints
 * Constraints are conditions that we can put on columns in order to make them only accept certain determined values.
 
@@ -71,6 +74,7 @@
 * __This constraint is used to check whether a value entered inside a column satisfies a boolean expression.__
 * For example, an age column must contain values greater than 0.
 * __This constraint is responsible for ensuring that the data present inside of a column makes sense.__
+
 
 ## Creating a Table
 * Here, we'll create a database related to movies. This database will be used through the whole course and will contain 5 tables:
@@ -160,4 +164,52 @@ CREATE TABLE movies_actors(
 	actor_id INT REFERENCES actors(actor_id)
   PRIMARY KEY (movie_id, actor_id) -- This primary key is a combination of other 2 columns of this table.
 );
+```
+
+## Modifying Tables
+* In order to modify an existing table, it is necessary to use the ```ALTER``` keyword from PostgreSQL.
+
+### Modifying Tables: Adding columns
+* In order to add a new column to an existing table inside a database, the syntax below must be followed:
+```SQL
+ALTER TABLE table_name
+ADD COLUMN new_column_name NEW_COLUMN_TYPE CONSTRAINTS;
+```
+
+* Real example:
+```SQL
+CREATE TABLE examples(
+	example_id SERIAL PRIMARY KEY,
+	first_name VARCHAR(30),
+	last_name VARCHAR(30)
+);
+
+SELECT * FROM examples;
+
+-- Query to alter the "examples" table by adding a column:
+ALTER TABLE examples
+ADD COLUMN email VARCHAR(50) UNIQUE;
+
+SELECT * FROM examples;
+```
+
+* It is also possible to add more than one column in the same SQL query as shown below:
+```SQL
+ALTER TABLE examples
+ADD COLUMN nationality VARCHAR(30),
+ADD COLUMN age INT NOT NULL;
+```
+
+### Modifying Tables: Chaging the Data Type of a Column
+* In order to modify the data type of an existing column inside a table, one must execute the following query:
+```SQL
+ALTER TABLE table_name
+ALTER COLUMN column_name TYPE new_data_type;
+```
+
+* If you want to alter multiple columns of a table from a certain database, all you need to do is use the a comma to separate the columns, as shown below:
+```SQL
+ALTER TABLE table_name
+ALTER COLUMN column_1 TYPE new_data_type1,
+ALTER COLUMN column_2 TYPE new_data_type2;
 ```
