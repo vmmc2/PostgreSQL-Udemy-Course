@@ -119,7 +119,7 @@ CREATE TABLE table_name(
   );
   ```
 
-### Query to Delete a Table From a Database
+### Delete a Table From a Database
 * To delete a certain table from a database, all you need to do is run the following script:
 ```SQL
 DROP TABLE table_name;
@@ -143,5 +143,21 @@ CREATE TABLE movies(
 CREATE TABLE table_name(
   table_id SERIAL PRIMARY KEY,
   foreign_key_id INT REFERENCES foreign_table(primary_key_name);
+);
+```
+
+### Creating a Junction Table (Movies-Actors Table)
+* __This table is responsible for linking the actors table and the movies table.__
+* __Such table is useful to figure out which actors appear in which movies.__
+* This kind of table has the single purpose of establishing a link between tables that already exist.
+* __We will learn more about them and in which scenarios one should use them when learning about relations.__
+* Example of how to create such table:
+```SQL
+-- Creating a junction table that links the "Actors" and the "Movies" tables:
+
+CREATE TABLE movies_actors(
+	movie_id INT REFERENCES movies(movie_id),
+	actor_id INT REFERENCES actors(actor_id)
+  PRIMARY KEY (movie_id, actor_id) -- This primary key is a combination of other 2 columns of this table.
 );
 ```
