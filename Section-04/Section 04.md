@@ -51,3 +51,20 @@ UPDATE examples
 SET first_name = 'James', age = 55
 WHERE example_id = 5;
 ```
+
+
+## Deleting Data From a Table
+* In order to delete a row from a table of a PostgreSQL database, one can run the following command:
+```SQL
+DELETE FROM table_name
+WHERE column_name = 'value'; -- The single quotes are only needed if we are dealing with text/date.
+```
+* Real world example:
+```SQL
+DELETE FROM examples
+WHERE example_id = 2;
+```
+* In order to delete the whole table (all of its rows), one can simply write the query below:
+```SQL
+DELETE FROM table_name;
+```
