@@ -22,3 +22,32 @@ VALUES('David', 'Mitchell', 'dmitch@gmail.com', 'GBR', 43);
         ('Emily', 'Smith', 'esmith@gmail.com', 'GBR', 29),
         ('Jim', 'Burr', 'jburr@gmail.com', 'USA', 54);
   ```
+
+
+## Updating Data From a Table
+* The command to update data from a table is very simple:
+```SQL
+UPDATE table_name
+SET column_name = 'new_value'
+WHERE column_name = 'old_value'; -- Usually it is a good practice to use the column that is a primary key to avoid undesired side effects.
+```
+* Real world example:
+```SQL
+UPDATE examples
+SET email = 'davidmitchell@gmail.com'
+WHERE example_id = 1;
+```
+* It is also possible to update several rows with a single query by using conditions in the query:
+```SQL
+-- Updating multiple rows that satisfy one certain condition.
+UPDATE examples
+SET nationality = 'CAN'
+WHERE nationality = 'USA';
+```
+* Lastly, it is also possible to change multiple column values of a certain row from a table by using the following:
+```SQL
+-- Updating multiple columns of a row at once, given a certain condition.
+UPDATE examples
+SET first_name = 'James', age = 55
+WHERE example_id = 5;
+```
