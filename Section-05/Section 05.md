@@ -45,4 +45,6 @@ WHERE (age_certificate = '18' AND movie_lang = 'English') OR (age_certificate = 
 ```
 
 
-## Logical Operators
+## Logical/Comparison Operators
+* __These operators are: ```>```, ```>=```, ```<```, ```<=```.__
+* __One can use there operators in both integers, varchar, char and dates inside ```WHERE``` clauses.__
