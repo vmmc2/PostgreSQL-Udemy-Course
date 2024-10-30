@@ -1,6 +1,6 @@
 # Section 05 - SQL & PostgreSQL: Retrieving Data from a Table - Select Queries
 
-## Select Queries
+## ```SELECT``` Queries
 * This query is the most used one to retrieve data from a table of a database.
 * For example, if one want to retrieve all data from all columns of a table, then the query is very simple:
 ```SQL
@@ -18,3 +18,31 @@ SELECT column_name_1, column_name_2, column_name_3 FROM database_name;;
 ```SQL
 SELECT first_name, last_name, date_of_birth FROM actors;
 ```
+
+
+## ```WHERE``` Clauses
+* __It is used to filter the results retrieved by a ```SELECT``` query based on a certain condition(s).__
+* It is possible to setup more than one condition by using the ```AND``` keyword.
+* Syntax of ```SELECT``` queries that use the ```WHERE``` clause:
+```SQL
+SELECT column_name FROM table_name
+WHERE column_name = 'specific_value';
+```
+* Real world examples:
+```SQL
+SELECT * FROM movies
+WHERE age_certificate = '15';
+
+SELECT * FROM movies
+WHERE age_certificate = '15'
+AND movie_lang = 'Chinese';
+```
+* __It is also possible to change the logical operator being used in a ```WHERE``` clause from ```AND``` to ```OR```.__
+* A more complex real world example that uses both ```AND``` and ```OR```:
+```SQL
+SELECT * FROM movies
+WHERE (age_certificate = '18' AND movie_lang = 'English') OR (age_certificate = '15' AND movie_lang = 'Chinese');
+```
+
+
+## Logical Operators
