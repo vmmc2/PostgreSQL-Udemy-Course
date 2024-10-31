@@ -48,3 +48,28 @@ WHERE (age_certificate = '18' AND movie_lang = 'English') OR (age_certificate = 
 ## Logical/Comparison Operators
 * __These operators are: ```>```, ```>=```, ```<```, ```<=```.__
 * __One can use there operators in both integers, varchar, char and dates inside ```WHERE``` clauses.__
+
+
+## ```IN```, ```NOT IN```
+* The keyword ```IN``` is usually used inside ```WHERE``` clauses to filter rows whose certain column values are equal to any value of a certain group.
+* Example:
+```SQL
+SELECT column_name_1, column_name_2 FROM table_name
+WHERE column_name_1 IN ("value_1", "value_2");
+```
+* The same thing applies to the keyword ```NOT IN```. It is commonly used inside ```WHERE``` clauses to filter rows whose certain column values are not equal to any value of a certain group.
+* Example:
+```SQL
+SELECT column_name_1, column_name_2 FROM table_name
+WHERE column_name_1 NOT IN ("value_1", "value_2");
+```
+* __Both ```IN``` and ```NOT IN``` can be used with integer values also.__
+
+
+## ```LIKE```
+* This keyword is often used in ```WHERE``` clauses. It is used for pattern recognition, in a very similar way to that of a regex.
+* Some examples that illustrate its usage:
+```SQL
+SELECT column_1, column_2, column_3 FROM table_name
+WHERE column_4 LIKE 'P%' -- This says that 
+```
