@@ -80,3 +80,19 @@ WHERE column_4 LIKE 'P_';
   * __```%```: This means any amount (possibly 0) of any characters.__
   * __```_```: This means exactly 1 character of any type.__
 * __These signs can be used anywhere inside a string value and any number of times.__
+
+
+## ```BETWEEN```
+* This keyword is used as a shortcut. It can be used with the ```AND``` keyword instead of using the ````<=```` operator.
+* __This means that both limits of this keyword are INCLUSIVE.__
+* It is generally used in the following way:
+```SQL
+SELECT column_1, column_2, column_3 FROM table_name
+WHERE column_4 BETWEEN value_left AND value_right;
+```
+* A real-world example is given below:
+```SQL
+SELECT movie_name, release_date FROM movies
+WHERE release_date BETWEEN '1995-01-01' AND '1999-12-31';
+```
+* __This keyword can be used with any values that can be ordered such as integers, dates, strings, etc. THE INSTRUCTOR RECOMENDS TO USE THIS WITH INTEGERS AND DATES VALUES.__
