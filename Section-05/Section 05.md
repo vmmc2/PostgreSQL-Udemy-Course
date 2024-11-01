@@ -71,5 +71,12 @@ WHERE column_name_1 NOT IN ("value_1", "value_2");
 * Some examples that illustrate its usage:
 ```SQL
 SELECT column_1, column_2, column_3 FROM table_name
-WHERE column_4 LIKE 'P%' -- This says that 
+WHERE column_4 LIKE 'P%'
+
+SELECT column_1, column_2, column_3 FROM table_name
+WHERE column_4 LIKE 'P_';
 ```
+* __Meaning of the signs presented above:__
+  * __```%```: This means any amount (possibly 0) of any characters.__
+  * __```_```: This means exactly 1 character of any type.__
+* __These signs can be used anywhere inside a string value and any number of times.__
