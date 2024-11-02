@@ -96,3 +96,33 @@ SELECT movie_name, release_date FROM movies
 WHERE release_date BETWEEN '1995-01-01' AND '1999-12-31';
 ```
 * __This keyword can be used with any values that can be ordered such as integers, dates, strings, etc. THE INSTRUCTOR RECOMENDS TO USE THIS WITH INTEGERS AND DATES VALUES.__
+
+
+## ```ORDER```
+* __This keyword is responsible for ordering the results of the executed query according to the values of a certain column from the table.__
+* Example of simple usage:
+```SQL
+SELECT column_1, column_2 FROM table_name
+ORDER BY column_3;
+```
+* __IMPORTANT: By default, the values of the chosen column are sorted in ascending order.__
+* __IMPORTANT: It is possible to alter this behavior through the use of the ```ASC``` and ```DESC``` keywords. The first one is used to sort the values in ascending order, while the second one is used to sort in descending order.__
+* __SIDE NOTE: When sorting the values of a column using ```DESC```, the ```NULL``` values will always appear first.__
+* Example of usage of the ```ASC``` and ```DESC``` keywords:
+```SQL
+SELECT column_1, column_2 FROM table_name
+ORDER BY column_3 ASC;
+
+SELECT column_1, column_2 FROM table_name
+ORDER BY column_3 DESC;
+```
+* __Real world example:__
+```SQL
+SELECT first_name, last_name, date_of_birth FROM actors
+ORDER BY first_name ASC;
+
+SELECT actor_id, first_name, last_name, date_of_birth FROM actors
+WHERE gender = 'F'
+ORDER BY date_of_birth DESC;
+```
+* __IMPORTANT: If you want to sort the result set based on multiple columns or expressions, you need to place a comma (```,```) between two columns to separate them.__
