@@ -126,3 +126,11 @@ WHERE gender = 'F'
 ORDER BY date_of_birth DESC;
 ```
 * __IMPORTANT: If you want to sort the result set based on multiple columns or expressions, you need to place a comma (```,```) between two columns to separate them.__
+
+
+## ```LIMIT```
+* __This keyword is responsible for limiting the amount of rows (records) returned when a query is made to the database.__
+* An example of how to use this keyword:
+```SQL
+SELECT column_1, column_2 FROM table_name LIMIT N;
+```
