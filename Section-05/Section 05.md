@@ -129,8 +129,56 @@ ORDER BY date_of_birth DESC;
 
 
 ## ```LIMIT```
-* __This keyword is responsible for limiting the amount of rows (records) returned when a query is made to the database.__
+* __This keyword is responsible for limiting the amount of rows (records) returned when a query is made to a table from the database.__
 * An example of how to use this keyword:
 ```SQL
-SELECT column_1, column_2 FROM table_name LIMIT N;
+SELECT column_1, column_2 FROM table_name LIMIT N; -- N is an integer value greater than 0.
+```
+* __A real world example that retrieves the movies with the top 3 movies with lowest domestic takings:__
+```SQL
+SELECT * FROM movie_revenues
+ORDER BY domestic_takings ASC
+LIMIT 3;
+```
+* There is also a keyword called ```OFFSET``` that is also commonly used with the ```ORDER BY``` keywords. Its usage is explained below:
+```SQL
+SELECT * FROM movie_revenues
+ORDER BY revenue_id ASC
+LIMIT 5 OFFSET 3 -- This will return the entries from 4 to 8 (both inclusive).
+```
+
+
+## ```FETCH```
+* __This keyword has a similar usage to that of the ```LIMIT``` keyword.__
+* This is also used to return a certain/specific number of rows/records of data.
+* The example below shows a very simple case of this usage:
+```SQL
+-- Using Fetch
+
+SELECT column_1, column_2 FROM table_name
+FETCH FIRST N ROW ONLY; -- The N is a positive integer representing the amount of rows/records that should be retrieved by the query.
+```
+* It is also possible to use the ```OFFSET``` keyword in this scenario. However, the syntax of the query is a bit different.
+```SQL
+SELECT * FROM movies
+OFFSET 8 ROWS
+FETCH FIRST 10 ROW ONLY; -- This will start the fetch process from a data row numbered from 9 through 18 (both inclusive).
+```
+
+
+## Distinct Values
+* __There is a keyword called ```DISTINCT```. This keyword is responsible for retrieving only the distinct values of a certain column.__
+* The example shown below illustrates how to use this syntax:
+```SQL
+SELECT DISTINCT column_name FROM table_name;
+```
+* A real world example is shown below:
+```SQL
+SELECT DISTINCT movie_lang FROM movies
+ORDER BY movie_lang ASC;
+```
+* __It is also possible to select distinct combinations from 2 or more columns. In order to do so, the following must be done:__
+```SQL
+SELECT DISTINCT movie_lang, age_certificate FROM movies -- Unique combinations of values of the columns "movie_lang" and "movie_certificate".
+ORDER BY movie_lang ASC; -- Ordering such combinations by the values of the "movie_lang" column in ascending order.
 ```
