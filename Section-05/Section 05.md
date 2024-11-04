@@ -212,3 +212,9 @@ ORDER BY domestic_takings DESC;
 SELECT * FROM movie_revenues
 WHERE international_takings IS NULL;
 ```
+
+
+## Setting a Column Name Alias 
+
+
+## Concatenation
