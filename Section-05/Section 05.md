@@ -182,3 +182,33 @@ ORDER BY movie_lang ASC;
 SELECT DISTINCT movie_lang, age_certificate FROM movies -- Unique combinations of values of the columns "movie_lang" and "movie_certificate".
 ORDER BY movie_lang ASC; -- Ordering such combinations by the values of the "movie_lang" column in ascending order.
 ```
+
+
+## Null Values
+* The keyword ```NULL``` represents the idea of absence of value.
+* Here is how one can deal with ```NULL``` values when executing queries to a table from a database:
+```SQL
+-- Dealing with NULL values.
+
+SELECT * FROM table_name
+WHERE column_name IS NULL;
+
+SELECT * FROM table_name
+WHERE column_name IS NOT NULL;
+```
+* __Real world example #1:__
+```SQL
+SELECT * FROM actors
+WHERE date_of_birth IS NOT NULL;
+```
+* __Real world example #2:__
+```SQL
+SELECT * FROM movie_revenues
+WHERE domestic_takings IS NOT NULL
+ORDER BY domestic_takings DESC;
+```
+* __Real world example #3:__
+```SQL
+SELECT * FROM movie_revenues
+WHERE international_takings IS NULL;
+```
