@@ -215,6 +215,31 @@ WHERE international_takings IS NULL;
 
 
 ## Setting a Column Name Alias 
+* In PostgreSQL, there is a keyword called ```ALIAS``` that is used to give an alias to a column.
+* Basically, one can set an alias for an existing column inside a query in the following way:
+```SQL
+SELECT column_name AS new_column_name FROM table_name;
+```
+* __By doing this, the result from the query will display the alias as the "new name" of the column. However, the table itself remains the same.__
+* Real world example:
+```SQL
+SELECT last_name AS surname FROM directors;
+```
+* The example below shows a misuse of the alias because, as explained above, it does not change the column name inside the table:
+```SQL
+-- The query below will throw an error.
+
+SELECT last_name AS surname FROM directors
+WHERE surname = 'Anderson'; -- Cannot use the ALIAS keyword in a WHERE clause.
+```
+* However, one is able to use the alias in a query if, and only if, the result has been computed, as shown below:
+```SQL
+-- The query below will run just fine.
+
+SELECT last_name AS surname FROM directors
+WHERE last_name LIKE 'A%'
+ORDER BY surname ASC;
+```
 
 
 ## Concatenation
